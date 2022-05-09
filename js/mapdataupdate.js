@@ -74,11 +74,17 @@ async function updateDataLayer(){
 function drawPopUp(e){
 
   let val = countiesData.data.find(x => x.id === dataMapping.data.find(x => `RU-${x.code}` === e.features[0].properties.shapeISO).id).name
+  let newCode = countiesData.data.find(x => x.id === dataMapping.data.find(x => `RU-${x.code}` === e.features[0].properties.shapeISO).id).id
+  let description = countiesData.data.find(x => x.id === dataMapping.data.find(x => `RU-${x.code}` === e.features[0].properties.shapeISO).id).description
+
+  description = description === undefined ? description = 'Ми поки не знаємо, що там' : description
 
   popup
     .setLngLat(e.lngLat.wrap())
-    .setHTML(val)
+    .setHTML(`<h3>${val}</h3><p>${description}</p>`)
     .addTo(map);
+
+  console.log(`${val} ${newCode} ${e.features[0].properties.shapeISO.id}`)
 };
 
 function showHide(id, infoId = null) {
