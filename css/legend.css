@@ -38,7 +38,7 @@ a { color: white; }
 
 
 .mapboxgl-popup-close-button {
-    color: #fff;
+    display: none;
 }
   
 .mapboxgl-popup-content {
@@ -48,7 +48,7 @@ a { color: white; }
     padding: 5px;
     min-width: 50px;
     vertical-align: middle;
-    text-align: left;
+    text-align: center;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
 }
